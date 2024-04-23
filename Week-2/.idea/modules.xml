@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/IoTask/IoTask.iml" filepath="$PROJECT_DIR$/IoTask/IoTask.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Serialization-Task/Serialization-Task.iml" filepath="$PROJECT_DIR$/Serialization-Task/Serialization-Task.iml" />
       <module fileurl="file://$PROJECT_DIR$/Week-2.iml" filepath="$PROJECT_DIR$/Week-2.iml" />
     </modules>
   </component>

@@ -6,42 +6,46 @@ import java.io.File;
 import java.io.FileWriter;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
+
 
         Scanner scanner = new Scanner(System.in);
 
-        // Ask the user for the file names
+
         System.out.print("Enter the file name: ");
-        String fileName = scanner.nextLine();
+        String fileName = "temp.txt";
 
 
         try (scanner;
-             RandomAccessFile file = new RandomAccessFile(fileName, "rw");
-             ) {
-
+        ) {
+            File file = new File(fileName);
+            RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
             String ans = "y";
-            while(ans.equals("y")){
+            while (ans.equals("y")) {
                 System.out.println("Enter text to be written:");
                 //FileWriter myWriter = new FileWriter(file);
-                file.writeUTF(scanner.nextLine()+"\n");
-                file.seek(file.length());
+                scanner.next();
+                randomAccessFile.writeUTF(scanner.nextLine() + "\n");
+                randomAccessFile.seek(0);
                 System.out.println("Do you want to add more?");
                 ans = scanner.nextLine();
 
             }
-
-            String content = file.readUTF();
             System.out.println("Contents of the file:");
+            while (randomAccessFile.getFilePointer() < file.length()) {
+                System.out.println(randomAccessFile.readUTF());
+            }
+            randomAccessFile.close();
+            String content = file.readUTF();
+
             System.out.println(content);
 
-//            while (fileScanner.hasNextLine()) {
-//                System.out.println(fileScanner.nextLine()+"\n");
-//            }
+            while (fileScanner.hasNextLine()) {
+                System.out.println(fileScanner.nextLine() + "\n");
+            }
 
         } catch (IOException e) {
             System.out.println("File not found: " + fileName);
         }
-
     }
 
-}
