@@ -24,7 +24,7 @@ public class Main {
                 System.out.println("Enter text to be written:");
                 //FileWriter myWriter = new FileWriter(file);
                 file.writeUTF(scanner.nextLine()+"\n");
-                file.seek(0);
+                file.seek(file.length());
                 System.out.println("Do you want to add more?");
                 ans = scanner.nextLine();
 
