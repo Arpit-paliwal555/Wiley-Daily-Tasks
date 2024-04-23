@@ -1,4 +1,6 @@
 import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.util.RandomAccess;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileWriter;
@@ -12,27 +14,29 @@ public class Main {
         System.out.print("Enter the file name: ");
         String fileName = scanner.nextLine();
 
-        // Attempt to open the file and read its content
-        try (scanner) {
-            File file = new File(fileName);
+
+        try (scanner;
+             RandomAccessFile file = new RandomAccessFile(fileName, "rw");
+             ) {
+
             String ans = "y";
             while(ans.equals("y")){
                 System.out.println("Enter text to be written:");
-                FileWriter myWriter = new FileWriter(file);
-                myWriter.write(scanner.nextLine());
+                //FileWriter myWriter = new FileWriter(file);
+                file.writeUTF(scanner.nextLine()+"\n");
+                file.seek(0);
                 System.out.println("Do you want to add more?");
                 ans = scanner.nextLine();
-                if (!ans.equals("y"))
-                    myWriter.close();
+
             }
 
-            Scanner fileScanner = new Scanner(file);
+            String content = file.readUTF();
             System.out.println("Contents of the file:");
+            System.out.println(content);
 
-            // Read and display each line of the file
-            while (fileScanner.hasNextLine()) {
-                System.out.println(fileScanner.nextLine()+"\n");
-            }
+//            while (fileScanner.hasNextLine()) {
+//                System.out.println(fileScanner.nextLine()+"\n");
+//            }
 
         } catch (IOException e) {
             System.out.println("File not found: " + fileName);
