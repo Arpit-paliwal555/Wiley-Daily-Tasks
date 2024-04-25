@@ -16,9 +16,7 @@ class Task{
     public void changeStatus(String status){
         this.status = status;
     }
-    public void addNewTask(Task task){
 
-    }
 }
 public class Main {
     Queue<Task> todoQueue = new LinkedList<>();
