@@ -40,6 +40,7 @@ public class Main {
 
             System.out.println(content);
 
+            Scanner fileScanner;
             while (fileScanner.hasNextLine()) {
                 System.out.println(fileScanner.nextLine() + "\n");
             }

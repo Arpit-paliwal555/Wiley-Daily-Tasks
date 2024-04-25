@@ -8,13 +8,13 @@ public class Main {
         Product prd2 = (Product) deSerializeObject(serFile.getName());
         System.out.println(prd2);
     }
-    public static void serializeObject(Object object) {
+    public static void serializeObject(Object object){
         try(OutputStream outputStream = new FileOutputStream("Product.ser");
-            ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream)){
-            objectOutputStream.writeObject(object);
-        }
-        catch (IOException ex){
-            System.err.println(ex.getMessage());
+            ObjectOutputStream ObjectOutput = new ObjectOutputStream(outputStream);
+        ){
+            ObjectOutput.writeObject(object);
+        }catch (IOException e){
+            System.out.println(e.getMessage());
         }
     }
     public static Object deSerializeObject(String filename){
