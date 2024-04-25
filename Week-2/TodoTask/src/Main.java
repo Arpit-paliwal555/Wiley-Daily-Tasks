@@ -1,6 +1,4 @@
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Stack;
+import java.util.*;
 
 class Task{
     String taskName;
@@ -40,9 +38,11 @@ public class Main {
     }
 
     void displayCompletedTask(){
-        System.out.println("Last completed Task:");
-        Task tsk = stack.peek();
-        System.out.println(tsk.taskName);
+
+        for (Task tsk: stack) {
+            System.out.println("Last completed Task:");
+            System.out.println(tsk.taskName);
+        }
     }
     public static void main(String[] args) {
 
@@ -55,8 +55,23 @@ public class Main {
         mn.addNewTask(t2);
         mn.addNewTask(t2);
 
-        mn.processTasks();
-        mn.processTasks();
+        Scanner sc = new Scanner(System.in);
+        System.out.println("complete all tasks(y/n):");
+        String ans = sc.nextLine();
+        if(ans.equals("y")){
+            while (!mn.todoQueue.isEmpty()){
+                mn.processTasks();
+            }
+            System.out.println("All tasks marked completed!");
+        }
+
+        System.out.println("show complete all tasks(y/n):");
+        String ans2 = sc.nextLine();
+        if(ans2.equals("y")){
+            mn.displayCompletedTask();
+        }
+
+
 
         mn.displayCompletedTask();
     }
