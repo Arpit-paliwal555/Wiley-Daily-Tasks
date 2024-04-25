@@ -38,7 +38,6 @@ public class Main {
     }
 
     void displayCompletedTask(){
-
         for (Task tsk: stack) {
             System.out.println("Last completed Task:");
             System.out.println(tsk.taskName);
@@ -53,7 +52,7 @@ public class Main {
 
         mn.addNewTask(t1);
         mn.addNewTask(t2);
-        mn.addNewTask(t2);
+        mn.addNewTask(t3);
 
         Scanner sc = new Scanner(System.in);
         System.out.println("complete all tasks(y/n):");
@@ -65,7 +64,7 @@ public class Main {
             System.out.println("All tasks marked completed!");
         }
 
-        System.out.println("show complete all tasks(y/n):");
+        System.out.println("show all completed tasks(y/n):");
         String ans2 = sc.nextLine();
         if(ans2.equals("y")){
             mn.displayCompletedTask();
