@@ -34,6 +34,7 @@ public class Main {
         Task tsk = todoQueue.poll();
         //assert tsk != null;
         tsk.changeStatus("Completed");
+        System.out.println("Completing task: "+tsk.taskName);
         stack.push(tsk);
         System.out.println("First pending task done!");
     }
