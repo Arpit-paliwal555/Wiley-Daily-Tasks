@@ -11,8 +11,8 @@ public class Main {
         """;
         //splitting the emails
         String[] emails = str.split(",");
-
-        // creating the map of emails to list of emails.
+        int maxLength = 0;
+        // creating the map of emails  to list of emails.
         Map<String, List<String>> map = new HashMap<>();
         for (String x : emails) {
             // string builder to remove spaces and effectively getting substrings.
@@ -28,14 +28,31 @@ public class Main {
                     // check if the provider exists if yes then add if no add to a new list.
                     List<String> emailList = map.getOrDefault(provider.toLowerCase(), new ArrayList<>());
                     emailList.add(sb.toString());
+                    maxLength = Math.max(maxLength, emailList.size());
                     // adding to map after converting to lowercase.
                     map.put(provider.toLowerCase(), emailList);
                 }
             }
         }
-        System.out.println("Gmail: "+map.get("gmail"));
-        System.out.println("Yahoo: "+map.get("gmail"));
-        System.out.println("Hotmail: "+map.get("gmail"));
+        for(String s: map.keySet()){
+            System.out.printf(s);
+            System.out.printf("%-30s","");
+        }
+        System.out.println();
+        System.out.println("-".repeat(100));
+
+        int index =0;
+        while (index<maxLength){
+            for (String n: map.keySet()){
+                if(index < map.get(n).size())
+                    System.out.printf("%-30s",map.get(n).get(index));
+                else
+                    System.out.printf("%-30s","");
+
+        }
+            System.out.println();
+            index++;
+        }
 
     }
 }
