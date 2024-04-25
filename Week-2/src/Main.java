@@ -34,8 +34,8 @@ public class Main {
             }
         }
         System.out.println("Gmail: "+map.get("gmail"));
-        System.out.println("Yahoo: "+map.get("gmail"));
-        System.out.println("Hotmail: "+map.get("gmail"));
+        System.out.println("Yahoo: "+map.get("yahoo"));
+        System.out.println("Hotmail: "+map.get("hotmail"));
 
     }
 }
