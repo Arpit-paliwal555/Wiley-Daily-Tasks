@@ -6,7 +6,7 @@ public class Main {
         List<String> ans = new ArrayList<>();
         names.forEach((a)->{
             String[] check = a.split(" ");
-            if (check.length==2){
+            if (check.length>=2){
                 ans.add(a);
             }
         });
@@ -37,7 +37,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        List<String> names = List.of("Harsh Kumar","Virat Kohli", "Mahendta Singh Dhoni","Akash","Karan Chopra");
+        List<String> names = List.of("Harsh Kumar","Virat Kohli", "Mahendra Singh Dhoni","Akash","Karan Chopra");
         List<String> validNames = getValidNames(names);
         List<String> shortNames = getShortNames(validNames);
         List<String> allName = getAllNames(names);
