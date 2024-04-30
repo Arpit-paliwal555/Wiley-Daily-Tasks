@@ -14,9 +14,11 @@ public class EmployeeMain {
         int giveniId = 101;
 
         Employee empWithGivenID = list.stream().filter(e->e.id==giveniId).findFirst().orElse(null);
-        list.stream().forEach(employee -> {
-            employee.salary += (employee.salary/100)*20;
+        list.forEach(employee -> {
+            if(employee.equals(empWithGivenID))
+                employee.salary += (employee.salary/100)*20;
         });
+        //empWithGivenID.salary += (empWithGivenID.salary/100)*20;
         System.out.println("Employee with id 101: "+empWithGivenID);
         System.out.println(list);
 
