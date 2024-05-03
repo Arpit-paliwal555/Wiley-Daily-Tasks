@@ -1,5 +1,12 @@
 package Stack;
-class TempStack<T>{
+interface stack<T>{
+    void push(Object item);
+    T pop();
+    boolean isFull();
+    boolean isEmpty();
+
+}
+class TempStack<T> implements stack{
     private T[] array;
     private int top;
     private int size;
@@ -10,13 +17,25 @@ class TempStack<T>{
         this.array = (T[]) new Object[size];
         this.top = -1;
     }
-    public void push(T item){
+
+    public void push(Object item){
         if(isFull()){
             System.err.println("Stack Overflow!");
             return ;
         }
-        array[++top] = item;
+        array[++top] = (T) item;
     }
+
+//    @Override
+//    public void push() {
+//
+//    }
+//
+//    @Override
+//    public void push(Object item) {
+//
+//    }
+
     public T pop(){
         if(isEmpty()){
             System.err.println("Stack Underflow!");
